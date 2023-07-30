@@ -2,3 +2,7 @@ body {
   background-color: #162025;
   font-family: "Russo One", sans-serif;
 }
+
+.hover-text-shadow:hover {
+  text-shadow: 2px 2px rgb(16, 185, 129);
+}

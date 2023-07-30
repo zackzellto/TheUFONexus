@@ -1,19 +1,19 @@
-import UFOhubLogo from "../../assets/images/ufohub_alien_icon.png";
+import UFONexusLogo from "../../assets/images/theufonexus_logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import React, { useState } from "react";
 import ReportUFOButton from "../buttons/ReportUFOButton";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800 lg:py-2 px-4 lg:flex justify-between relative">
+    <nav className="bg-gray-800  px-4 lg:flex justify-between relative">
       <div className="flex items-center justify-between">
         <img
-          src={UFOhubLogo}
-          className="h-8 lg:ml-2 lg:h-12 rounded-full"
-          alt="UFOHub Alien Icon"
+          src={UFONexusLogo}
+          className="h-12 lg:ml-2 lg:h-16 rounded-full"
+          alt="UFONexus Logo"
         />
         {isOpen ? (
           <FaTimes
@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
       <h1 className="absolute lg:bottom-2 bottom-1 inset-x-0 text-center">
         <Link
           to="/"
-          className="text-white drop-shadow-lg text-xl mx-auto lg:text-4xl font-bold"
+          className="text-white text-xl mx-auto lg:text-4xl font-bold transition-all duration-300 hover-text-shadow"
         >
           The UFO Nexus
         </Link>
@@ -42,34 +42,34 @@ const Navbar: React.FC = () => {
     transform transition-transform duration-500 ease-in-out lg:translate-x-0
     ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="text-center lg:mt-3 lg:flex lg:items-center">
+        <div className="text-center lg:mt-5 lg:flex lg:items-center">
           <Link
             to="/"
-            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 hover-text-shadow bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 hover-text-shadow bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
           >
             About
           </Link>
           <Link
             to="/store"
-            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 hover-text-shadow bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
           >
             Shop
           </Link>
           <Link
             to="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 hover-text-shadow bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
           >
             Blog
           </Link>
           <Link
-            to="/blog"
-            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
+            to="/testimonials"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white lg:mr-4 hover-text-shadow bg-gray-800 hover:border-spacing-1 drop-shadow-none p-1 rounded transform transition duration-500 hover:scale-105"
           >
             Testimonials
           </Link>

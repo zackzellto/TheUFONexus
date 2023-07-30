@@ -7,6 +7,7 @@ import Navbar from "./components/navbar/Navbar";
 import "./App.css";
 import AboutPage from "./views/AboutPage";
 import ReportUFOPage from "./views/ReportUFOPage";
+import TestimonialsPage from "./views/TestimonialsPage";
 
 const App: React.FC = () => {
   return (
@@ -14,9 +15,10 @@ const App: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/store" element={<ShopPage />} />
         <Route path="/blog" element={<BlogPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/report-ufo" element={<ReportUFOPage />} />
       </Routes>
       {/* 
