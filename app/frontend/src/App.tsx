@@ -6,6 +6,7 @@ import BlogPage from "./views/BlogPage";
 import Navbar from "./components/navbar/Navbar";
 import "./App.css";
 import AboutPage from "./views/AboutPage";
+import ReportUFOPage from "./views/ReportUFOPage";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Route path="/store" element={<ShopPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/report-ufo" element={<ReportUFOPage />} />
       </Routes>
       {/* 
       <AdSenseAd
