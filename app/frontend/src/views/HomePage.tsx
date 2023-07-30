@@ -1,9 +1,10 @@
 import React from "react";
+import NewsCarousel from "../components/carousels/NewsCarousel";
 
 const HomePage: React.FC = () => {
   return (
     <div className="text-center">
-      <h1>This is the Home page</h1>
+      <NewsCarousel />
     </div>
   );
 };

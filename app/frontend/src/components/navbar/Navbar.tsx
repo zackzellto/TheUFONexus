@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-800  px-4 lg:flex justify-between relative">
+    <nav className="bg-gray-800 px-4 lg:flex justify-between relative">
       <div className="flex items-center justify-between">
         <Link to="/">
           <img
