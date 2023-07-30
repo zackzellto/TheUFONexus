@@ -10,11 +10,14 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-gray-800  px-4 lg:flex justify-between relative">
       <div className="flex items-center justify-between">
-        <img
-          src={UFONexusLogo}
-          className="h-12 lg:ml-2 lg:h-16 rounded-full"
-          alt="UFONexus Logo"
-        />
+        <Link to="/">
+          <img
+            src={UFONexusLogo}
+            className="h-12 lg:ml-2 lg:h-16 rounded-full drop-shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105"
+            alt="UFONexus Logo"
+          />
+        </Link>
+
         {isOpen ? (
           <FaTimes
             onClick={() => setIsOpen(!isOpen)}
@@ -28,10 +31,10 @@ const Navbar: React.FC = () => {
         )}
       </div>
 
-      <h1 className="absolute lg:bottom-2 bottom-1 inset-x-0 text-center">
+      <h1 className="lg:inline-block">
         <Link
           to="/"
-          className="text-white text-xl mx-auto lg:text-4xl font-bold transition-all duration-300 hover-text-shadow"
+          className="text-white w-fit absolute lg:bottom-2 bottom-2 inset-x-0 text-center text-xl mx-auto lg:text-4xl font-bold transition-all duration-300 hover-text-shadow"
         >
           The UFO Nexus
         </Link>
