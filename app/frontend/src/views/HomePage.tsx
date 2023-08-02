@@ -7,15 +7,16 @@ const HomePage: React.FC = () => {
     <div className="text-center">
       <NewsCarousel
         image="image"
-        title="title"
-        description="description"
+        title="Lorem ipsum"
+        description="Maecenas aliquet nunc in sem varius, in ultricies arcu lacinia. Cras sodales tortor vel libero convallis, ac interdum ex ultricies. Sed dapibus augue a eros efficitur, nec facilisis enim egestas. "
+        sourceName="sourceName"
         sourceUrl="sourceUrl"
-        link="link"
       />
       <SmallCard
         image="image"
-        title="title"
-        description="description"
+        title="Lorem ipsum"
+        description="Aenean cursus convallis orci, sed porttitor augue egestas in. Nulla facilisi. Vestibulum et ultrices enim."
+        sourceName="sourceName"
         sourceUrl="sourceUrl"
       />
     </div>
