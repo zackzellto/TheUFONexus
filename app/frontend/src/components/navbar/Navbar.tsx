@@ -34,14 +34,14 @@ const Navbar: React.FC = () => {
       <h1 className="lg:inline-block">
         <Link
           to="/"
-          className="text-white w-fit absolute lg:bottom-2 bottom-2 inset-x-0 text-center text-xl mx-auto lg:text-4xl font-bold transition-all duration-300 hover-text-shadow"
+          className="text-white w-fit absolute bottom-2 inset-x-0 text-center text-xl mx-auto lg:text-4xl font-bold transition-all duration-300 hover-text-shadow"
         >
           The UFO Nexus
         </Link>
       </h1>
 
       <div
-        className={`fixed lg:static right-0 h-full w-48 lg:w-auto bg-gray-800 overflow-auto lg:overflow-visible
+        className={`fixed lg:mr-12 lg:static right-0 h-full w-48 lg:w-auto bg-gray-800 overflow-auto lg:overflow-visible
     transform transition-transform duration-500 ease-in-out lg:translate-x-0
     ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
