@@ -4,16 +4,22 @@ type Props = {
   image: string;
   title: string;
   description: string;
-  link: string;
+  sourceUrl: string;
 };
 
 const CardContainer = (props: Props) => {
   return (
-    <div className="bg-slate-300 opacity-40 rounded-lg ml-14 mt-96 h-72 w-64 p-2">
-      <div className="w-full">{props.image}</div>
-      <div className="mt-28">{props.title}</div>
-      <div className="mt-4">{props.description}</div>
-      <div className="mt-6">{props.link}</div>
+    <div
+      className="bg-slate-300 opacity-20 shadow-xl rounded-lg mx-auto m-4 h-72 w-[360px] p-2 flex flex-col justify-center items-center bg-cover bg-center"
+      style={{ backgroundImage: `url(${props.image})` }}
+    >
+      <div className="text-2xl lg:text-3xl text-center">{props.title}</div>
+      <div className="text-md lg:text-xl mt-4 text-center">
+        {props.description}
+      </div>
+      <div className="text-sm lg:text-md mt-2 text-center">
+        {props.sourceUrl}
+      </div>
     </div>
   );
 };

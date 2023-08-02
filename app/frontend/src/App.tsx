@@ -13,14 +13,16 @@ const App: React.FC = () => {
   return (
     <Router>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/store" element={<ShopPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/testimonials" element={<TestimonialsPage />} />
-        <Route path="/report-ufo" element={<ReportUFOPage />} />
-      </Routes>
+      <div className="p-8">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/store" element={<ShopPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/report-ufo" element={<ReportUFOPage />} />
+        </Routes>
+      </div>
       {/* 
       <AdSenseAd
         adClient="ca-pub-XXXXXXXXXXXXXXXX"

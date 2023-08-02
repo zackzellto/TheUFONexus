@@ -9,14 +9,14 @@ const HomePage: React.FC = () => {
         image="image"
         title="title"
         description="description"
-        source="source"
+        sourceUrl="sourceUrl"
         link="link"
       />
       <SmallCard
         image="image"
         title="title"
         description="description"
-        link="link"
+        sourceUrl="sourceUrl"
       />
     </div>
   );
