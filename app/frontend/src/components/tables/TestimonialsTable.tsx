@@ -10,7 +10,7 @@ interface TableProps {
 const TestimonialTable: React.FC<TableProps> = ({ headers, rows, icon }) => {
   return (
     <div className="flex justify-center overflow-x-auto drop-shadow-xl">
-      <table className="mx-auto min-w-fit rounded-xl bg-slate-300 text-xs">
+      <table className="mx-auto min-w-fit rounded-lg bg-slate-300 text-xs">
         <thead>
           <tr>
             {headers.map((header, index) => (
