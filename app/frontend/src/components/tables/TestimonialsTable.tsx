@@ -1,20 +1,22 @@
 import React from "react";
+import UFOReportIcon from "../../images/UFOReportIcon.png";
 
 interface TableProps {
   headers: string[];
   rows: string[][];
+  icon: string;
 }
 
-const TestimonialTable: React.FC<TableProps> = ({ headers, rows }) => {
+const TestimonialTable: React.FC<TableProps> = ({ headers, rows, icon }) => {
   return (
-    <div className="flex justify-center overflow-x-auto">
+    <div className="flex justify-center overflow-x-auto drop-shadow-xl">
       <table className="mx-auto min-w-fit rounded-xl bg-slate-300 text-xs">
         <thead>
           <tr>
             {headers.map((header, index) => (
               <th
                 key={index}
-                className={`border border-gray-800 p-1 font-normal text-white ${
+                className={`border border-gray-800 p-1 font-normal ${
                   header === "Date" || header === "Location"
                     ? "min-w-[200px]"
                     : ""
@@ -46,6 +48,14 @@ const TestimonialTable: React.FC<TableProps> = ({ headers, rows }) => {
                   {cell}
                 </td>
               ))}
+              <td className="border border-gray-800 drop-shadow-xl p-1">
+                <button className="focus:outline-none w-[30px] h-[30px]">
+                  <img
+                    src={UFOReportIcon}
+                    alt="View Full Witness Testimonial"
+                  />
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

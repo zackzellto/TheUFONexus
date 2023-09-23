@@ -1,4 +1,4 @@
-import UFONexusLogo from "../../assets/images/theufonexus_logo.png";
+import UFONexusLogo from "../../images/theufonexus_logo.png";
 import { FaBars, FaTimes } from "react-icons/fa";
 import React, { useState } from "react";
 import ReportUFOButton from "../buttons/ReportUFOButton";
@@ -9,12 +9,11 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-gray-800 px-4 lg:flex justify-between relative">
-      <div className="flex items-center justify-between">
+      <div className="flex gap-2">
         <Link to="/">
           <img
             src={UFONexusLogo}
             className="h-12 lg:ml-2 lg:h-16 rounded-full drop-shadow-xl transition-transform duration-500 ease-in-out transform hover:scale-105"
-            alt="UFONexus Logo"
           />
         </Link>
 
@@ -26,19 +25,19 @@ const Navbar: React.FC = () => {
         ) : (
           <FaBars
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white h-10 cursor-pointer lg:hidden"
+            className="text-white h-10 cursor-pointer lg:hidden fixed right-0 mr-4"
           />
         )}
+        <h1 className="lg:inline-block relative">
+          <Link
+            to="/"
+            className="text-white relative top-4 w-fit text-lg lg:text-2xl font-bold transition-all duration-300 hover-text-shadow"
+            style={{ zIndex: 10 }}
+          >
+            The UFO Nexus
+          </Link>
+        </h1>
       </div>
-
-      <h1 className="lg:inline-block">
-        <Link
-          to="/"
-          className="text-white w-fit absolute bottom-2 inset-x-0 text-center text-xl mx-auto lg:text-4xl font-bold transition-all duration-300 hover-text-shadow"
-        >
-          The UFO Nexus
-        </Link>
-      </h1>
 
       <div
         className={`fixed lg:mr-12 lg:static right-0 h-full w-48 lg:w-auto bg-gray-800 overflow-auto lg:overflow-visible
