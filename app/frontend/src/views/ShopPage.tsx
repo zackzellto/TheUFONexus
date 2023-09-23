@@ -2,8 +2,8 @@ import React from "react";
 
 const ShopPage: React.FC = () => {
   return (
-    <div className="text-center">
-      <h1>This is the shop page</h1>
+    <div className="text-center items-center justify-center">
+      <div className="text-4xl">Shop</div>
     </div>
   );
 };
