@@ -4,7 +4,7 @@ import SubmitSightingButton from "../components/buttons/SubmitSightingButton";
 
 const TestimonialsPage: React.FC = () => {
   return (
-    <div className="text-center items-center justify-center">
+    <div className="text-center items-center justify-center mt-20">
       <div className="flex justify-between items-center">
         <div className="text-4xl text-center text-white p-8">
           Witness Testimonials

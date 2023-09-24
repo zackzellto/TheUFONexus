@@ -4,7 +4,7 @@ import SmallCard from "../components/cards/SmallCard";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="text-center">
+    <div className="text-center mt-20">
       <NewsCarousel
         image="image"
         title="Lorem ipsum"
