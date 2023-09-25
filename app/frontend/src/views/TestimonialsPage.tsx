@@ -1,6 +1,7 @@
 import React from "react";
 import TestimonialTable from "../components/tables/TestimonialsTable";
 import SubmitSightingButton from "../components/buttons/SubmitSightingButton";
+import SubmitSightingModal from "../components/modals/SubmitSightingModal";
 
 const TestimonialsPage: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const TestimonialsPage: React.FC = () => {
         <div className="text-4xl text-center text-white p-8">
           Witness Testimonials
         </div>
-        <SubmitSightingButton />
+        <SubmitSightingModal />
       </div>
       <div className="mt-8 drop-shadow-xl">
         <TestimonialTable

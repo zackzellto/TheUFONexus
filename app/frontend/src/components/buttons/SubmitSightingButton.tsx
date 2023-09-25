@@ -19,23 +19,7 @@ const SubmitSightingButton = () => {
         </a>
       </button>
 
-      {isModalOpen && (
-        <SubmitSightingModal
-          firstName={""}
-          lastName={""}
-          date={""}
-          time={""}
-          location={""}
-          witnesses={""}
-          description={""}
-          behavior={""}
-          duration={""}
-          shape={""}
-          color={""}
-          sound={""}
-          distance={""}
-        />
-      )}
+      {isModalOpen && <SubmitSightingModal toggleModal={toggleModal} />}
     </div>
   );
 };

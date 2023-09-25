@@ -1,6 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
 import Select from "react-select";
-import { format, eachDayOfInterval, startOfMonth, endOfMonth } from "date-fns";
 
 interface SightingModalProps {
   firstName: string;
@@ -16,9 +15,9 @@ interface SightingModalProps {
   color: string;
   sound: string;
   distance: string;
-  altitude?: string;
-  image?: File | null;
-  video?: File | null;
+  altitude: string;
+  image: File | null;
+  video: File | null;
 }
 
 const timeZones = [
@@ -49,104 +48,112 @@ const timeZones = [
   { value: "UTC+12:00", label: "UTC+12:00" },
 ];
 
-const SubmitSightingModal: React.FC<SightingModalProps> = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTimeZone, setSelectedTimeZone] = useState<any>(null);
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [videoFile, setVideoFile] = useState<File | null>(null);
+const SubmitSightingButton: React.FC = () => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [formData, setFormData] = useState<SightingModalProps>({
+    firstName: "",
+    lastName: "",
+    date: "",
+    time: "",
+    location: "",
+    witnesses: "",
+    description: "",
+    behavior: "",
+    duration: "",
+    shape: "",
+    color: "",
+    sound: "",
+    distance: "",
+    altitude: "",
+    image: null,
+    video: null,
+  });
 
-  const openModal = () => {
-    setIsOpen(true);
+  const toggleModal = () => {
+    setModalOpen(!isModalOpen);
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
-
-  const handleDateClick = (date: Date) => {
-    setSelectedDate(date);
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
   };
 
   const handleFileChange = (
     e: ChangeEvent<HTMLInputElement>,
-    setFile: React.Dispatch<React.SetStateAction<File | null>>
+    key: keyof SightingModalProps
   ) => {
     const files = e.target.files;
     if (files && files.length > 0) {
-      setFile(files[0]);
+      setFormData({
+        ...formData,
+        [key]: files[0],
+      });
     }
   };
-
-  const daysArray = eachDayOfInterval({
-    start: startOfMonth(new Date()),
-    end: endOfMonth(new Date()),
-  });
 
   return (
     <div>
       <button
-        onClick={openModal}
-        className="bg-blue-500 text-white p-2 rounded"
+        onClick={toggleModal}
+        className="bg-green-500 hover:bg-green-400 drop-shadow-xl text-white p-2 rounded-lg m-4 transform hover:scale-105 transition duration-500"
       >
-        Open Modal
+        Submit Sighting
       </button>
 
-      {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-8 rounded-lg w-1/2">
-            <button onClick={closeModal} className="float-right">
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          onClick={toggleModal}
+        >
+          <div
+            className="bg-white p-8 rounded-lg w-1/2"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button onClick={toggleModal} className="float-right">
               Close Modal
             </button>
             <h1 className="text-2xl mb-4">Submit a Sighting</h1>
 
-            <div className="grid grid-cols-7 gap-2 mb-4">
-              {daysArray.map((date) => (
-                <button
-                  key={date.toString()}
-                  onClick={() => handleDateClick(date)}
-                  className={`p-2 border rounded ${
-                    selectedDate &&
-                    format(selectedDate, "dd") === format(date, "dd")
-                      ? "bg-blue-200"
-                      : ""
-                  }`}
-                >
-                  {format(date, "dd")}
-                </button>
-              ))}
-            </div>
-
-            <Select
-              options={timeZones}
-              value={selectedTimeZone}
-              onChange={(selectedOption) => setSelectedTimeZone(selectedOption)}
-              className="mb-4"
-            />
-
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-600">
-                Upload Image
-              </label>
-              <input
-                type="file"
-                accept="image/*"
-                className="mt-1 p-2 border rounded"
-                onChange={(e) => handleFileChange(e, setImageFile)}
-              />
-            </div>
-
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-600">
-                Upload Video
-              </label>
-              <input
-                type="file"
-                accept="video/*"
-                className="mt-1 p-2 border rounded"
-                onChange={(e) => handleFileChange(e, setVideoFile)}
-              />
-            </div>
+            <form>
+              {Object.keys(formData).map((key) => {
+                if (key === "image" || key === "video") {
+                  return (
+                    <input
+                      key={key}
+                      type="file"
+                      name={key}
+                      onChange={(e) =>
+                        handleFileChange(e, key as keyof SightingModalProps)
+                      }
+                      className="mb-4 p-2 border rounded"
+                    />
+                  );
+                }
+                return (
+                  <input
+                    key={key}
+                    type="text"
+                    name={key}
+                    placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
+                    value={(formData as any)[key]}
+                    onChange={handleInputChange}
+                    className="mb-4 p-2 border rounded"
+                  />
+                );
+              })}
+              <Select options={timeZones} className="mb-4" />
+              <button
+                type="submit"
+                className="bg-blue-500 text-white p-2 rounded"
+              >
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       )}
@@ -154,4 +161,4 @@ const SubmitSightingModal: React.FC<SightingModalProps> = (props) => {
   );
 };
 
-export default SubmitSightingModal;
+export default SubmitSightingButton;
