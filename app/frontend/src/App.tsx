@@ -23,14 +23,6 @@ const App: React.FC = () => {
           <Route path="/report-ufo" element={<ReportUFOPage />} />
         </Routes>
       </div>
-      {/* 
-      <AdSenseAd
-        adClient="ca-pub-XXXXXXXXXXXXXXXX"
-        adSlot="1234567890"
-        adFormat="auto"
-        adStyle={{ display: 'block' }}
-      /> 
-      */}
     </Router>
   );
 };

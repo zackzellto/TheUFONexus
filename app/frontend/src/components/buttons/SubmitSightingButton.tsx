@@ -19,7 +19,7 @@ const SubmitSightingButton = () => {
         </a>
       </button>
 
-      {isModalOpen && <SubmitSightingModal toggleModal={toggleModal} />}
+      {isModalOpen && <SubmitSightingModal />}
     </div>
   );
 };
